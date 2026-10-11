@@ -1,4 +1,4 @@
-CREATE DATABASE authentifpcar;
+CREATE DATABASE IF NOT EXISTS authentifpcar;
 USE authentifpcar;
 
 CREATE TABLE IF NOT EXISTS vehicles (
@@ -7,8 +7,9 @@ CREATE TABLE IF NOT EXISTS vehicles (
     brand VARCHAR(50),
     model VARCHAR(50),
     manufacturing_year YEAR,
-    current_mileage INT UNSIGNED,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    current_mileage INT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    validated BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 CREATE TABLE IF NOT EXISTS itv (
@@ -20,6 +21,7 @@ CREATE TABLE IF NOT EXISTS itv (
     result VARCHAR(30),
     document_itv BLOB,
     recorded_mileage INT UNSIGNED,
+    validated BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (vin_number) 
         REFERENCES vehicles(vin_number)
         ON UPDATE CASCADE
@@ -35,6 +37,7 @@ CREATE TABLE IF NOT EXISTS fines (
     fine_date DATE,
     amount DECIMAL(10,2),
     document_fine BLOB,
+    validated BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (vin_number) 
         REFERENCES vehicles(vin_number)
         ON UPDATE CASCADE
@@ -50,6 +53,7 @@ CREATE TABLE IF NOT EXISTS repairs (
     repair_date DATE,
     workshop VARCHAR(100),
     document_repairs BLOB,
+    validated BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (vin_number) 
         REFERENCES vehicles(vin_number)
         ON UPDATE CASCADE
@@ -62,6 +66,7 @@ CREATE TABLE IF NOT EXISTS others (
     description TEXT NOT NULL,
     document_others BLOB,
     record_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    validated BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (vin_number) 
         REFERENCES vehicles(vin_number)
         ON UPDATE CASCADE
@@ -72,9 +77,8 @@ CREATE TABLE IF NOT EXISTS users (
 id BIGINT AUTO_INCREMENT PRIMARY KEY,
 username VARCHAR(50) NOT NULL UNIQUE,
 password_hash VARCHAR(255) NOT NULL,
-role VARCHAR(15) NOT NULL,
+role ENUM ('ADMIN', 'USER', 'COMPANY') NOT NULL,
 enabled BOOLEAN NOT NULL DEFAULT TRUE,
-created_at DATETIME NOT NULL DEFAULT current_timestamp,
-CONSTRAINT chk_user_role CHECK (role IN ('USER', 'ADMIN')) 
+created_at DATETIME NOT NULL DEFAULT current_timestamp
 
 );
