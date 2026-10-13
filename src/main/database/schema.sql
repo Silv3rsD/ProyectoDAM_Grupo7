@@ -1,6 +1,15 @@
 CREATE DATABASE IF NOT EXISTS authentifpcar;
 USE authentifpcar;
 
+CREATE TABLE IF NOT EXISTS users (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    role ENUM ('ADMIN', 'USER', 'COMPANY') NOT NULL,
+    enabled BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE TABLE IF NOT EXISTS vehicles (
     vin_number VARCHAR(17) PRIMARY KEY,
     license_plate VARCHAR(15) NOT NULL UNIQUE,
@@ -9,7 +18,9 @@ CREATE TABLE IF NOT EXISTS vehicles (
     manufacturing_year YEAR,
     current_mileage INT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    validated BOOLEAN NOT NULL DEFAULT FALSE
+    validated BOOLEAN NOT NULL DEFAULT FALSE,
+    created_by BIGINT NULL,
+    FOREIGN KEY (created_by) REFERENCES users(id)
 );
 
 CREATE TABLE IF NOT EXISTS itv (
@@ -22,10 +33,12 @@ CREATE TABLE IF NOT EXISTS itv (
     document_itv BLOB,
     recorded_mileage INT UNSIGNED,
     validated BOOLEAN NOT NULL DEFAULT FALSE,
-    FOREIGN KEY (vin_number) 
+    created_by BIGINT NULL,
+    FOREIGN KEY (vin_number)
         REFERENCES vehicles(vin_number)
         ON UPDATE CASCADE
-        ON DELETE RESTRICT
+        ON DELETE RESTRICT,
+    FOREIGN KEY (created_by) REFERENCES users(id)
 );
 
 CREATE TABLE IF NOT EXISTS fines (
@@ -38,10 +51,12 @@ CREATE TABLE IF NOT EXISTS fines (
     amount DECIMAL(10,2),
     document_fine BLOB,
     validated BOOLEAN NOT NULL DEFAULT FALSE,
-    FOREIGN KEY (vin_number) 
+    created_by BIGINT NULL,
+    FOREIGN KEY (vin_number)
         REFERENCES vehicles(vin_number)
         ON UPDATE CASCADE
-        ON DELETE RESTRICT
+        ON DELETE RESTRICT,
+    FOREIGN KEY (created_by) REFERENCES users(id)
 );
 
 CREATE TABLE IF NOT EXISTS repairs (
@@ -54,10 +69,12 @@ CREATE TABLE IF NOT EXISTS repairs (
     workshop VARCHAR(100),
     document_repairs BLOB,
     validated BOOLEAN NOT NULL DEFAULT FALSE,
-    FOREIGN KEY (vin_number) 
+    created_by BIGINT NULL,
+    FOREIGN KEY (vin_number)
         REFERENCES vehicles(vin_number)
         ON UPDATE CASCADE
-        ON DELETE RESTRICT
+        ON DELETE RESTRICT,
+    FOREIGN KEY (created_by) REFERENCES users(id)
 );
 
 CREATE TABLE IF NOT EXISTS others (
@@ -67,18 +84,10 @@ CREATE TABLE IF NOT EXISTS others (
     document_others BLOB,
     record_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     validated BOOLEAN NOT NULL DEFAULT FALSE,
-    FOREIGN KEY (vin_number) 
+    created_by BIGINT NULL,
+    FOREIGN KEY (vin_number)
         REFERENCES vehicles(vin_number)
         ON UPDATE CASCADE
-        ON DELETE RESTRICT
-);
-
-CREATE TABLE IF NOT EXISTS users (
-id BIGINT AUTO_INCREMENT PRIMARY KEY,
-username VARCHAR(50) NOT NULL UNIQUE,
-password_hash VARCHAR(255) NOT NULL,
-role ENUM ('ADMIN', 'USER', 'COMPANY') NOT NULL,
-enabled BOOLEAN NOT NULL DEFAULT TRUE,
-created_at DATETIME NOT NULL DEFAULT current_timestamp
-
+        ON DELETE RESTRICT,
+    FOREIGN KEY (created_by) REFERENCES users(id)
 );
