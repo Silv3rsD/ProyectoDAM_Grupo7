@@ -16,7 +16,7 @@ Permite consultar los vehículos inscritos en nuestra base de datos mediante un 
 
 Esta es la función principal de la aplicación, siendo de acceso público y sin necesidad de registro o identificación previa.
 
-El usuario (anónimo o registrado) podrá consultar los datos generales del vehículo y su historial disponible.
+El usuario podrá consultar los datos generales del vehículo; adicionalmente aquellos usuarios registrados podrán acceder a su historial de búsqueda.
 
 ### Registro de usuarios y empresas
 
