@@ -47,17 +47,39 @@ public class MainActivity extends Activity {
     }
 
     private void search() {
-        String plate = Plate.normalize(plateInput.getText().toString());
+        String plate = normalizePlate(plateInput.getText().toString());
+
+        // Ocultamos el resultado anterior
         vehicleDetails.setVisibility(View.GONE);
-        if (!Plate.isValid(plate)) {
+
+        // Comprobamos que sea válida
+        if (!isValidPlate(plate)) {
             plateInput.setError(getString(R.string.invalid_plate));
             status.setText(R.string.invalid_plate);
             return;
         }
+
+        // Quitamos cualquier error anterior
         plateInput.setError(null);
+
+        // Mostramos que estamos buscando
         setLoading(true);
+
+        // Realizamos la consulta en segundo plano
         executor.execute(() -> fetchVehicle(plate));
     }
+
+
+    static String normalizePlate(String plate) {
+
+        return plate.trim().toUpperCase(Locale.ROOT).replaceAll("\\s+", "");
+    }
+
+    static boolean isValidPlate(String plate) {
+
+        return plate.matches("[A-Z0-9-]{4,15}");
+    }
+
 
     private void fetchVehicle(String plate) {
         HttpURLConnection connection = null;
