@@ -18,6 +18,7 @@ public class VehicleTest {
                 68500
         );
 
+        assertEquals("WVWZZZ1JZXW000001", coche.getVin());
         assertEquals("1234ABC", coche.getLicensePlate());
         assertEquals("Toyota", coche.getBrand());
         assertEquals("Corolla", coche.getModel());

@@ -2,7 +2,7 @@ package com.autentifpcar.mobile;
 
 public class Vehicle {
 
-    private final String vim;
+    private final String vin;
     private final String licensePlate;
     private final String brand;
     private final String model;
@@ -10,8 +10,8 @@ public class Vehicle {
     private final int currentMileage;
 
     //Constructor
-    public Vehicle(String iVim, String iPlate, String iBrand, String iModel, int iManufacturerYear, int iCurrentMileage) {
-        this.vim = iVim;
+    public Vehicle(String iVin, String iPlate, String iBrand, String iModel, int iManufacturerYear, int iCurrentMileage) {
+        this.vin = iVin;
         this.licensePlate = iPlate;
         this.brand = iBrand;
         this.model = iModel;
@@ -19,8 +19,8 @@ public class Vehicle {
         this.currentMileage = iCurrentMileage;
     }
 
-    public String getVim() {
-        return this.vim;
+    public String getVin() {
+        return this.vin;
     }
 
     public String getLicensePlate() {
