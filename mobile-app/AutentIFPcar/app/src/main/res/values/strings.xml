@@ -18,4 +18,5 @@
     <string name="year_label">Año: %1$d</string>
     <string name="mileage_label">Kilometraje: %1$s km</string>
     <string name="vin_label">Bastidor: %1$s</string>
+    <string name="plate_field_label">Matrícula</string>
 </resources>
