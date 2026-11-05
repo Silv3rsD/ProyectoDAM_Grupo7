@@ -10,14 +10,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
+
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
@@ -32,10 +27,14 @@ public class MainActivity extends Activity {
     private TextView vehicleData;
     private LinearLayout vehicleDetails;
 
+    private VehicleApi vehicleApi;
+
     @Override
     protected void onCreate(Bundle state) {
         super.onCreate(state);
         setContentView(R.layout.activity_main);
+
+        vehicleApi = new VehicleApi(getString(R.string.api_base_url));
 
         plateInput = findViewById(R.id.plate_input);
         searchButton = findViewById(R.id.search_button);
@@ -47,83 +46,108 @@ public class MainActivity extends Activity {
     }
 
     private void search() {
-        String plate = Plate.normalize(plateInput.getText().toString());
+        String plate = normalizePlate(plateInput.getText().toString());
+
+        // Ocultamos el resultado anterior
         vehicleDetails.setVisibility(View.GONE);
-        if (!Plate.isValid(plate)) {
+
+        // Comprobamos que sea válida
+        if (!isValidPlate(plate)) {
             plateInput.setError(getString(R.string.invalid_plate));
             status.setText(R.string.invalid_plate);
             return;
         }
+
+        // Quitamos cualquier error anterior
         plateInput.setError(null);
+
+        // Mostramos que estamos buscando
         setLoading(true);
+
+        // Realizamos la consulta en segundo plano
         executor.execute(() -> fetchVehicle(plate));
     }
 
-    private void fetchVehicle(String plate) {
-        HttpURLConnection connection = null;
-        try {
-            String baseUrl = getString(R.string.api_base_url);
-            URL url = new URL(baseUrl + "/api/public/vehicles/plate/" + plate);
-            connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("GET");
-            connection.setConnectTimeout(5000);
-            connection.setReadTimeout(5000);
 
-            int code = connection.getResponseCode();
-            if (code == 200) {
-                StringBuilder body = new StringBuilder();
-                try (BufferedReader reader = new BufferedReader(new InputStreamReader(
-                        connection.getInputStream(), StandardCharsets.UTF_8))) {
-                    String line;
-                    while ((line = reader.readLine()) != null) body.append(line);
-                }
-                JSONObject vehicle = new JSONObject(body.toString());
-                if (!hasVehicleFields(vehicle)) {
-                    showMessage(R.string.invalid_response);
+    static String normalizePlate(String plate) {
+
+        return plate.trim().toUpperCase(Locale.ROOT).replaceAll("\\s+", "");
+    }
+
+    static boolean isValidPlate(String plate) {
+
+        return plate.matches("[A-Z0-9-]{4,15}");
+    }
+
+
+
+    private void fetchVehicle(String plate) {
+
+        try {
+            // Consultamos el vehículo
+            Vehicle vehicle = vehicleApi.findByPlate(plate);
+
+            // Volvemos al hilo de la interfaz
+            runOnUiThread(() -> {
+                if (isFinishing() || isDestroyed()) {
                     return;
                 }
-                runOnUiThread(() -> {
-                    if (isFinishing() || isDestroyed()) return;
-                    setLoading(false);
-                    showVehicle(vehicle);
-                });
-            } else if (code == 400) {
+
+                setLoading(false);
+                showVehicle(vehicle);
+            });
+
+        } catch (VehicleApi.HttpException error) {
+
+            int code = error.getStatusCode();
+
+            if (code == 400) {
                 showMessage(R.string.bad_request);
             } else if (code == 404) {
                 showMessage(R.string.not_found);
             } else {
                 runOnUiThread(() -> {
-                    if (isFinishing() || isDestroyed()) return;
+                    if (isFinishing() || isDestroyed()) {
+                        return;
+                    }
                     setLoading(false);
-                    status.setText(getString(R.string.server_error, code));
+                    status.setText(
+                            getString(R.string.server_error, code)
+                    );
                 });
             }
-        } catch (IOException | JSONException error) {
+        } catch (JSONException error) {
+            showMessage(R.string.invalid_response);
+        } catch (IOException error) {
             showMessage(R.string.connection_error);
-        } finally {
-            if (connection != null) connection.disconnect();
         }
     }
 
-    private boolean hasVehicleFields(JSONObject vehicle) {
-        return vehicle.has("vin") && vehicle.has("licensePlate")
-                && vehicle.has("brand") && vehicle.has("model")
-                && vehicle.has("manufacturingYear") && vehicle.has("currentMileage");
-    }
+    private void showVehicle(Vehicle vehicle) {
 
-    private void showVehicle(JSONObject vehicle) {
-        String mileage = NumberFormat.getIntegerInstance(new Locale("es", "ES"))
-                .format(vehicle.optInt("currentMileage"));
-        String details = getString(R.string.plate_label, vehicle.optString("licensePlate")) + "\n"
-                + getString(R.string.model_label, vehicle.optString("brand"),
-                        vehicle.optString("model")) + "\n"
-                + getString(R.string.year_label, vehicle.optInt("manufacturingYear")) + "\n"
-                + getString(R.string.mileage_label, mileage) + "\n"
-                + getString(R.string.vin_label, vehicle.optString("vin"));
+        String mileage = NumberFormat.getIntegerInstance(new Locale("es", "ES")).format(vehicle.getCurrentMileage());
+
+        String details = getString(R.string.plate_label,
+                        vehicle.getLicensePlate()) + "\n"
+
+                        + getString(R.string.model_label,
+                        vehicle.getBrand(),
+                        vehicle.getModel()) + "\n"
+
+                        + getString(R.string.year_label,
+                        vehicle.getManufacturingYear()) + "\n"
+
+                        + getString(R.string.mileage_label,
+                        mileage) + "\n"
+
+                        + getString(R.string.vin_label,
+                        vehicle.getVin());
+
         vehicleData.setText(details);
         vehicleDetails.setVisibility(View.VISIBLE);
         status.setText("");
     }
+
 
     private void showMessage(int messageId) {
         runOnUiThread(() -> {
