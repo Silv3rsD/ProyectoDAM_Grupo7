@@ -1,0 +1,4 @@
+<resources>
+    <!-- Sustituir por una dirección HTTPS antes de publicar la app. -->
+    <string name="api_base_url" translatable="false">https://example.invalid</string>
+</resources>

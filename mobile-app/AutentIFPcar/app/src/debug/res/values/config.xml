@@ -1,0 +1,4 @@
+<resources>
+    <!-- El emulador accede al servidor del ordenador mediante 10.0.2.2. -->
+    <string name="api_base_url" translatable="false">http://10.0.2.2:8080</string>
+</resources>
