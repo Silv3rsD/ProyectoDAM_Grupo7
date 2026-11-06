@@ -1,7 +1,0 @@
-com.autentifpcar.mobile.test.app-core-1.7.0-0 C:\Users\proto\.gradle\caches\8.13\transforms\64de5d6d63f81d416480bbf4ea098f6c\transformed\core-1.7.0\res
-com.autentifpcar.mobile.test.app-tracing-1.1.0-1 C:\Users\proto\.gradle\caches\8.13\transforms\719a262627126633f80cde0871812f0c\transformed\tracing-1.1.0\res
-com.autentifpcar.mobile.test.app-androidTest-2 C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\build\generated\res\resValues\androidTest\debug
-com.autentifpcar.mobile.test.app-updated_navigation_xml-3 C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\build\generated\updated_navigation_xml\debugAndroidTest
-com.autentifpcar.mobile.test.app-mergeDebugAndroidTestResources-4 C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
-com.autentifpcar.mobile.test.app-mergeDebugAndroidTestResources-5 C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
-com.autentifpcar.mobile.test.app-debugAndroidTest-6 C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

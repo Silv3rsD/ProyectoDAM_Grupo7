@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.autentifpcar.mobile.MainActivityValidationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-11-06T17:36:34.080Z" hostname="NR-BPT" time="0.029">
-  <properties/>
-  <testcase name="normalizaMatricula" classname="com.autentifpcar.mobile.MainActivityValidationTest" time="0.028"/>
-  <testcase name="compruebaMatriculaValida" classname="com.autentifpcar.mobile.MainActivityValidationTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

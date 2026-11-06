@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<testsuite name="com.autentifpcar.mobile.MainActivityTest" tests="1" failures="0" errors="0" skipped="0" time="2.982" timestamp="2026-11-05T17:53:25" hostname="localhost">
-  <properties>
-    <property name="device" value="Medium_Phone_API_35(AVD) - 15" />
-    <property name="flavor" value="" />
-    <property name="project" value=":app" />
-  </properties>
-  <testcase name="showsValidationErrorWithoutARequest" classname="com.autentifpcar.mobile.MainActivityTest" time="0.983" />
-</testsuite>
