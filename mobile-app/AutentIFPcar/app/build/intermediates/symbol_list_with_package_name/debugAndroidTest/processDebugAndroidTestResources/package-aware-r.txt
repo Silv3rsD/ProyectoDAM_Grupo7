@@ -1,0 +1,3 @@
+com.autentifpcar.mobile.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

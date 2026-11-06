@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DoNotAskProjectManager">
+    <option name="idToDisplayName">
+      <map>
+        <entry key="Agent Mode" value="Agent Mode Availability" />
+        <entry key="Android Gradle Upgrade Notification" value="Android Gradle Upgrade Notification" />
+      </map>
+    </option>
+  </component>
+</project>

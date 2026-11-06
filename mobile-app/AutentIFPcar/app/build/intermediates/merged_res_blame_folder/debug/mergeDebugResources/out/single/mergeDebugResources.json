@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\proto\\.gradle\\daemon\\8.13\\com.autentifpcar.mobile.app-debug-4:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\proto\\.gradle\\daemon\\8.13\\com.autentifpcar.mobile.app-main-6:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.autentifpcar.mobile.app-debug-4:/drawable_bg_vehicle_card.xml.flat",
+        "source": "com.autentifpcar.mobile.app-main-6:/drawable/bg_vehicle_card.xml"
+    },
+    {
+        "merged": "com.autentifpcar.mobile.app-debug-4:/drawable_bg_search_card.xml.flat",
+        "source": "com.autentifpcar.mobile.app-main-6:/drawable/bg_search_card.xml"
+    },
+    {
+        "merged": "com.autentifpcar.mobile.app-debug-4:/layout_activity_main.xml.flat",
+        "source": "com.autentifpcar.mobile.app-main-6:/layout/activity_main.xml"
+    }
+]

@@ -1,0 +1,8 @@
+com.autentifpcar.mobile.app-pngs-0 C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\build\generated\res\pngs\debug
+com.autentifpcar.mobile.app-resValues-1 C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\build\generated\res\resValues\debug
+com.autentifpcar.mobile.app-updated_navigation_xml-2 C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\build\generated\updated_navigation_xml\debug
+com.autentifpcar.mobile.app-packageDebugResources-3 C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.autentifpcar.mobile.app-packageDebugResources-4 C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.autentifpcar.mobile.app-debug-5 C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.autentifpcar.mobile.app-debug-6 C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\debug\res
+com.autentifpcar.mobile.app-main-7 C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\res
