@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">AutentIFPcar</string>
+    <string name="title">Consulta de vehículos</string>
+    <string name="intro">Busca un vehículo publicado por su matrícula.</string>
+    <string name="plate_hint">Matrícula (ej. 1234ABC)</string>
+    <string name="search">Buscar</string>
+    <string name="ready">Introduce una matrícula para consultar la ficha.</string>
+    <string name="loading">Buscando vehículo…</string>
+    <string name="invalid_plate">Introduce una matrícula de 4 a 15 letras, números o guiones.</string>
+    <string name="not_found">Vehículo no encontrado o no publicado.</string>
+    <string name="bad_request">La matrícula no es válida para el servidor.</string>
+    <string name="connection_error">No se puede conectar con el servidor. Comprueba la red y vuelve a intentarlo.</string>
+    <string name="server_error">El servidor ha devuelto un error (%1$d). Vuelve a intentarlo.</string>
+    <string name="invalid_response">El servidor ha devuelto una ficha incompleta.</string>
+    <string name="vehicle_title">Ficha del vehículo</string>
+    <string name="plate_label">Matrícula: %1$s</string>
+    <string name="model_label">Vehículo: %1$s %2$s</string>
+    <string name="year_label">Año: %1$d</string>
+    <string name="mileage_label">Kilometraje: %1$s km</string>
+    <string name="vin_label">Bastidor: %1$s</string>
+    <string name="plate_field_label">Matrícula</string>
+</resources>
