@@ -1,92 +1,104 @@
-
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="#F8FAFC">
+    android:background="@color/background_light">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Cabecera -->
-        <TextView
+        <!-- CABECERA -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#E7EDF1"
-            android:padding="20dp"
-            android:gravity="center"
-            android:text="@string/app_name"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="#18344A" />
+            android:orientation="vertical">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/primary_maroon"
+                android:gravity="center"
+                android:padding="22dp"
+                android:text="@string/app_name"
+                android:textColor="@color/text_on_dark"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@color/primary_blue" />
+        </LinearLayout>
+
+        <!-- CONTENIDO -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="20dp">
 
-            <!-- Título -->
+            <!-- TÍTULO -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/title"
+                android:textColor="@color/text_primary"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="#18344A" />
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/intro"
-                android:textColor="#526373" />
+                android:textColor="@color/text_secondary"
+                android:textSize="16sp" />
 
-            <!-- Buscador -->
+            <!-- TARJETA DE BÚSQUEDA -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:padding="20dp"
+                android:background="@drawable/bg_search_card"
                 android:orientation="vertical"
-                android:background="@drawable/bg_search_card">
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:labelFor="@id/plate_input"
                     android:text="@string/plate_field_label"
-                    android:textStyle="bold"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="@color/text_primary"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/plate_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:minHeight="48dp"
-                    android:padding="12dp"
-                    android:background="#FFFFFF"
-                    android:textColor="#18344A"
-                    android:textColorHint="#718096"
+                    android:background="@color/surface_white"
                     android:hint="@string/plate_hint"
                     android:inputType="textCapCharacters"
                     android:maxLength="20"
-                    android:singleLine="true" />
+                    android:minHeight="48dp"
+                    android:padding="12dp"
+                    android:singleLine="true"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_secondary" />
 
                 <Button
                     android:id="@+id/search_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:backgroundTint="@color/primary_blue"
                     android:minHeight="48dp"
                     android:text="@string/search"
-                    android:textColor="#FFFFFF"
-                    android:backgroundTint="#1E5A75" />
+                    android:textColor="@color/text_on_dark" />
 
                 <ProgressBar
                     android:id="@+id/loading"
@@ -95,37 +107,37 @@
                     android:layout_height="4dp"
                     android:layout_marginTop="12dp"
                     android:indeterminate="true"
-                    android:indeterminateTint="#FFFFFF"
+                    android:indeterminateTint="@color/primary_blue"
                     android:visibility="gone" />
-
             </LinearLayout>
 
-            <!-- Mensajes -->
+            <!-- MENSAJE -->
             <TextView
                 android:id="@+id/status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:accessibilityLiveRegion="polite"
                 android:text="@string/ready"
-                android:textColor="#526373"
-                android:accessibilityLiveRegion="polite" />
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp" />
 
-            <!-- Resultado -->
+            <!-- RESULTADO -->
             <LinearLayout
                 android:id="@+id/vehicle_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:padding="20dp"
-                android:orientation="vertical"
                 android:background="@drawable/bg_vehicle_card"
+                android:orientation="vertical"
+                android:padding="20dp"
                 android:visibility="gone">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/vehicle_title"
-                    android:textColor="#18344A"
+                    android:textColor="@color/text_primary"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -135,9 +147,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:lineSpacingExtra="8dp"
-                    android:textColor="#18344A"
+                    android:textColor="@color/text_primary"
                     android:textSize="16sp" />
-
             </LinearLayout>
 
         </LinearLayout>

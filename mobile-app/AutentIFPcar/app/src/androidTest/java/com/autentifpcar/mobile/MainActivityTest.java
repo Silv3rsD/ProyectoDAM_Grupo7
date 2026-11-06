@@ -18,6 +18,10 @@ public class MainActivityTest {
     @Test public void showsValidationErrorWithoutARequest() {
         Intent intent = new Intent(InstrumentationRegistry.getInstrumentation().getTargetContext(),
                 MainActivity.class);
+
+        // Permite abrir MainActivity desde un contexto que no es una Activity.
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
         MainActivity activity = (MainActivity) InstrumentationRegistry.getInstrumentation()
                 .startActivitySync(intent);
         try {
