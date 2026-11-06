@@ -1,70 +1,16 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\proto\\.gradle\\daemon\\8.13\\com.autentifpcar.mobile.app-debug-4:\\values_values.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\proto\\Proyectos\\ProyectoDAM_Grupo7\\mobile-app\\AutentIFPcar\\app\\src\\main\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
-                    },
-                    "to": {
-                        "startLines": "3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "138,188,272,395,475,578,669,724,787,847,924,987,1043,1126,1168,1271,1327,1388,1441",
-                        "endColumns": "49,83,122,79,102,90,54,62,59,76,62,55,82,41,102,55,60,52,48",
-                        "endOffsets": "183,267,390,470,573,664,719,782,842,919,982,1038,1121,1163,1266,1322,1383,1436,1485"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\proto\\Proyectos\\ProyectoDAM_Grupo7\\mobile-app\\AutentIFPcar\\app\\src\\main\\res\\values\\styles.xml",
-                    "from": {
-                        "startLines": "1",
-                        "startColumns": "4",
-                        "startOffsets": "16",
-                        "endLines": "8",
-                        "endColumns": "12",
-                        "endOffsets": "475"
-                    },
-                    "to": {
-                        "startLines": "22",
-                        "startColumns": "4",
-                        "startOffsets": "1490",
-                        "endLines": "29",
-                        "endColumns": "12",
-                        "endOffsets": "1949"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\proto\\Proyectos\\ProyectoDAM_Grupo7\\mobile-app\\AutentIFPcar\\app\\src\\debug\\res\\values\\config.xml",
-                    "from": {
-                        "startLines": "-1",
-                        "startColumns": "-1",
-                        "startOffsets": "-1"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "82",
-                        "endOffsets": "133"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "com.autentifpcar.mobile.app-debug-4:/values_values.arsc.flat",
             "map": [
                 {
                     "source": "C:\\Users\\proto\\Proyectos\\ProyectoDAM_Grupo7\\mobile-app\\AutentIFPcar\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,20,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,4,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1388,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "endColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,55,-1,-1,-1,-1,-1,-1,-1,-1,-1",
-                        "endOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1439,-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                        "startLines": "1,10,11,3,8,13,7,18,16,9,20,4,15,6,5,12,2,14,19,17",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "17,635,720,125,453,948,397,1270,1159,557,1388,206,1102,313,270,844,68,1040,1334,1220",
+                        "endColumns": "49,83,122,79,102,90,54,62,59,76,55,62,55,82,41,102,55,60,52,48",
+                        "endOffsets": "62,714,838,200,551,1034,447,1328,1214,629,1439,264,1153,391,307,942,119,1096,1382,1264"
                     },
                     "to": {
                         "startLines": "11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30",
@@ -79,10 +25,10 @@
                     "from": {
                         "startLines": "1",
                         "startColumns": "4",
-                        "startOffsets": "16",
+                        "startOffsets": "17",
                         "endLines": "8",
                         "endColumns": "12",
-                        "endOffsets": "534"
+                        "endOffsets": "542"
                     },
                     "to": {
                         "startLines": "31",
@@ -96,9 +42,11 @@
                 {
                     "source": "C:\\Users\\proto\\Proyectos\\ProyectoDAM_Grupo7\\mobile-app\\AutentIFPcar\\app\\src\\debug\\res\\values\\config.xml",
                     "from": {
-                        "startLines": "-1",
-                        "startColumns": "-1",
-                        "startOffsets": "-1"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "93",
+                        "endColumns": "82",
+                        "endOffsets": "171"
                     },
                     "to": {
                         "startLines": "10",

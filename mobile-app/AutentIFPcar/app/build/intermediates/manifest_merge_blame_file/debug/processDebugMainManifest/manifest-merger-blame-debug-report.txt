@@ -20,28 +20,27 @@
 16-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\AndroidManifest.xml:6:9-41
 17        android:supportsRtl="true"
 17-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\AndroidManifest.xml:8:9-35
-18        android:testOnly="true"
-19        android:theme="@style/AppTheme"
-19-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\AndroidManifest.xml:7:9-40
-20        android:usesCleartextTraffic="true" >
-20-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\debug\AndroidManifest.xml:3:18-53
-21        <activity
-21-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\AndroidManifest.xml:9:9-14:20
-22            android:name="com.autentifpcar.mobile.MainActivity"
-22-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\AndroidManifest.xml:9:19-47
-23            android:exported="true" >
-23-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\AndroidManifest.xml:9:48-71
-24            <intent-filter>
-24-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\AndroidManifest.xml:10:13-13:29
-25                <action android:name="android.intent.action.MAIN" />
-25-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\AndroidManifest.xml:11:17-69
-25-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\AndroidManifest.xml:11:25-66
-26
-27                <category android:name="android.intent.category.LAUNCHER" />
-27-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\AndroidManifest.xml:12:17-77
-27-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\AndroidManifest.xml:12:27-74
-28            </intent-filter>
-29        </activity>
-30    </application>
-31
-32</manifest>
+18        android:theme="@style/AppTheme"
+18-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\AndroidManifest.xml:7:9-40
+19        android:usesCleartextTraffic="true" >
+19-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\debug\AndroidManifest.xml:3:18-53
+20        <activity
+20-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\AndroidManifest.xml:9:9-14:20
+21            android:name="com.autentifpcar.mobile.MainActivity"
+21-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\AndroidManifest.xml:9:19-47
+22            android:exported="true" >
+22-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\AndroidManifest.xml:9:48-71
+23            <intent-filter>
+23-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\AndroidManifest.xml:10:13-13:29
+24                <action android:name="android.intent.action.MAIN" />
+24-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\AndroidManifest.xml:11:17-69
+24-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\AndroidManifest.xml:11:25-66
+25
+26                <category android:name="android.intent.category.LAUNCHER" />
+26-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\AndroidManifest.xml:12:17-77
+26-->C:\Users\proto\Proyectos\ProyectoDAM_Grupo7\mobile-app\AutentIFPcar\app\src\main\AndroidManifest.xml:12:27-74
+27            </intent-filter>
+28        </activity>
+29    </application>
+30
+31</manifest>

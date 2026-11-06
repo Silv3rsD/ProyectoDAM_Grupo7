@@ -1,4 +1,4 @@
-#Fri Nov 06 16:17:28 CET 2026
+#Fri Nov 06 18:34:58 CET 2026
 base.1=C\:\\Users\\proto\\Proyectos\\ProyectoDAM_Grupo7\\mobile-app\\AutentIFPcar\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
 path.1=5/classes.dex
 base.0=C\:\\Users\\proto\\Proyectos\\ProyectoDAM_Grupo7\\mobile-app\\AutentIFPcar\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
