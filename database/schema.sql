@@ -1,15 +1,6 @@
 CREATE DATABASE IF NOT EXISTS authentifpcar;
 USE authentifpcar;
 
-CREATE TABLE IF NOT EXISTS users (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    password_hash VARCHAR(255) NOT NULL,
-    role ENUM ('ADMIN', 'USER', 'COMPANY') NOT NULL,
-    enabled BOOLEAN NOT NULL DEFAULT TRUE,
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
-
 CREATE TABLE IF NOT EXISTS vehicles (
     vin_number VARCHAR(17) PRIMARY KEY,
     license_plate VARCHAR(15) NOT NULL UNIQUE,
@@ -18,9 +9,7 @@ CREATE TABLE IF NOT EXISTS vehicles (
     manufacturing_year YEAR,
     current_mileage INT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    validated BOOLEAN NOT NULL DEFAULT FALSE,
-    created_by BIGINT NULL,
-    FOREIGN KEY (created_by) REFERENCES users(id)
+    validated BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 CREATE TABLE IF NOT EXISTS itv (
@@ -33,12 +22,10 @@ CREATE TABLE IF NOT EXISTS itv (
     document_itv BLOB,
     recorded_mileage INT UNSIGNED,
     validated BOOLEAN NOT NULL DEFAULT FALSE,
-    created_by BIGINT NULL,
-    FOREIGN KEY (vin_number)
+    FOREIGN KEY (vin_number) 
         REFERENCES vehicles(vin_number)
         ON UPDATE CASCADE
-        ON DELETE RESTRICT,
-    FOREIGN KEY (created_by) REFERENCES users(id)
+        ON DELETE RESTRICT
 );
 
 CREATE TABLE IF NOT EXISTS fines (
@@ -51,12 +38,10 @@ CREATE TABLE IF NOT EXISTS fines (
     amount DECIMAL(10,2),
     document_fine BLOB,
     validated BOOLEAN NOT NULL DEFAULT FALSE,
-    created_by BIGINT NULL,
-    FOREIGN KEY (vin_number)
+    FOREIGN KEY (vin_number) 
         REFERENCES vehicles(vin_number)
         ON UPDATE CASCADE
-        ON DELETE RESTRICT,
-    FOREIGN KEY (created_by) REFERENCES users(id)
+        ON DELETE RESTRICT
 );
 
 CREATE TABLE IF NOT EXISTS repairs (
@@ -69,12 +54,10 @@ CREATE TABLE IF NOT EXISTS repairs (
     workshop VARCHAR(100),
     document_repairs BLOB,
     validated BOOLEAN NOT NULL DEFAULT FALSE,
-    created_by BIGINT NULL,
-    FOREIGN KEY (vin_number)
+    FOREIGN KEY (vin_number) 
         REFERENCES vehicles(vin_number)
         ON UPDATE CASCADE
-        ON DELETE RESTRICT,
-    FOREIGN KEY (created_by) REFERENCES users(id)
+        ON DELETE RESTRICT
 );
 
 CREATE TABLE IF NOT EXISTS others (
@@ -84,10 +67,36 @@ CREATE TABLE IF NOT EXISTS others (
     document_others BLOB,
     record_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     validated BOOLEAN NOT NULL DEFAULT FALSE,
-    created_by BIGINT NULL,
-    FOREIGN KEY (vin_number)
+    FOREIGN KEY (vin_number) 
         REFERENCES vehicles(vin_number)
         ON UPDATE CASCADE
-        ON DELETE RESTRICT,
-    FOREIGN KEY (created_by) REFERENCES users(id)
+        ON DELETE RESTRICT
+);
+
+/*
+Se añade la verificación de las cuentas mediante email. SpringBoot gestiona el link de verifiación.
+*/
+CREATE TABLE IF NOT EXISTS users (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    role ENUM('ADMIN', 'INDIVIDUAL', 'TECHNICIAN') NOT NULL,
+    account_status ENUM('ACTIVE', 'PENDING', 'REJECTED') NOT NULL DEFAULT 'PENDING',
+    email_verified BOOLEAN NOT NULL DEFAULT FALSE,
+    enabled BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+/*
+Esta tabla sirve para verificar las cuentas de técnico
+Se verifica el correo electrónico y la documentación oficial por parte de los ADMIN para darles su status de técnico.
+*/
+CREATE TABLE IF NOT EXISTS technician_profiles (
+    user_id BIGINT PRIMARY KEY,
+    workshop_name VARCHAR(150),
+    accreditation_number VARCHAR(100) NOT NULL,
+    documentation_path VARCHAR(255) NOT NULL,
+    FOREIGN KEY (user_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE
 );
