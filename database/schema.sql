@@ -73,9 +73,6 @@ CREATE TABLE IF NOT EXISTS others (
         ON DELETE RESTRICT
 );
 
-/*
-Se añade la verificación de las cuentas mediante email. SpringBoot gestiona el link de verifiación.
-*/
 CREATE TABLE IF NOT EXISTS users (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
@@ -86,6 +83,20 @@ CREATE TABLE IF NOT EXISTS users (
     email_verified BOOLEAN NOT NULL DEFAULT FALSE,
     enabled BOOLEAN NOT NULL DEFAULT TRUE,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+/*
+Se añade la verificación de las cuentas mediante email. SpringBoot gestiona el link de verifiación.
+*/
+CREATE TABLE IF NOT EXISTS email_verifications (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT NOT NULL UNIQUE,
+    token_hash VARCHAR(255) NOT NULL UNIQUE,
+    expires_at DATETIME NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE
 );
 /*
 Esta tabla sirve para verificar las cuentas de técnico
