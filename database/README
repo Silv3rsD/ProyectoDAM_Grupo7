@@ -1,0 +1,5 @@
+Para realizar las pruebas con la base de datos el orden de ejecución es:
+1º Ejecutar el archivo schema.sql
+2º Ejecutar los dos archivos con los datos de pruebas (demo-data-users y demo-data-vehicles)
+3º Realizar los testeos según lo indicado en el documento correspondiente
+NOTA: Las contraseñas de las cuentas demo son siempre Clave12345
