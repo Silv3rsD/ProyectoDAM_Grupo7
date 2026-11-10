@@ -1,9 +1,8 @@
 package com.example.demo.repository;
 
 /**
- * REPOSITORIO: la capa que habla con la base de datos.
- * Al extender JpaRepository, Spring genera solo las consultas básicas (guardar, buscar por VIN...).
- * El método findByLicensePlateAndValidatedTrue lo interpreta Spring por su nombre y crea:
+ * Al hacer extend de JpaRepository, Spring genera solo las consultas básicas (guardar, buscar por VIN...).
+ * El método findByLicensePlateAndValidatedTrue hace:
  * SELECT * FROM vehicles WHERE license_plate = ? AND validated = TRUE.
  * Así, un vehículo no validado nunca se devuelve (seguridad para no mostrar registros internos).
  */
