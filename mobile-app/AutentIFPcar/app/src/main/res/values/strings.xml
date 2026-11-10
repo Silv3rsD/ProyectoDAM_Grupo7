@@ -19,4 +19,7 @@
     <string name="mileage_label">Kilometraje: %1$s km</string>
     <string name="vin_label">Bastidor: %1$s</string>
     <string name="plate_field_label">Matrícula</string>
+    <string name="history_title">Historial del vehículo</string>
+    <string name="history_pending">El historial todavía no está conectado al servidor.</string>
+    <string name="history_demo_warning">DEMOSTRACIÓN: datos ficticios no vinculados al vehículo consultado.</string>
 </resources>

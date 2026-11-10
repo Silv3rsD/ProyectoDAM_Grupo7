@@ -26,6 +26,9 @@ public class MainActivity extends Activity {
     private TextView status;
     private TextView vehicleData;
     private LinearLayout vehicleDetails;
+    private LinearLayout historySection;
+    private LinearLayout historyList;
+    private TextView historyStatus;
 
     private VehicleApi vehicleApi;
 
@@ -42,14 +45,19 @@ public class MainActivity extends Activity {
         status = findViewById(R.id.status);
         vehicleData = findViewById(R.id.vehicle_data);
         vehicleDetails = findViewById(R.id.vehicle_details);
+        historySection = findViewById(R.id.history_section);
+        historyList = findViewById(R.id.history_list);
+        historyStatus = findViewById(R.id.history_status);
         searchButton.setOnClickListener(view -> search());
     }
 
     private void search() {
         String plate = normalizePlate(plateInput.getText().toString());
 
-        // Ocultamos el resultado anterior
+        // Ocultamos los resultados anteriores
         vehicleDetails.setVisibility(View.GONE);
+        historySection.setVisibility(View.GONE);
+        historyList.removeAllViews();
 
         // Comprobamos que sea válida
         if (!isValidPlate(plate)) {
@@ -146,6 +154,19 @@ public class MainActivity extends Activity {
         vehicleData.setText(details);
         vehicleDetails.setVisibility(View.VISIBLE);
         status.setText("");
+
+        // Mostramos datos de ejemplo solo para nuestro vehículo simulado.
+        if ("1234ABC".equals(vehicle.getLicensePlate())
+                && "WVWZZZ1JZXW000001".equals(vehicle.getVin())) {
+
+            showDemoHistory();
+
+        } else {
+
+            // El historial real todavía no está conectado.
+            historyStatus.setText(R.string.history_pending);
+            historySection.setVisibility(View.VISIBLE);
+        }
     }
 
 
@@ -155,6 +176,56 @@ public class MainActivity extends Activity {
             setLoading(false);
             status.setText(messageId);
         });
+    }
+
+
+    private void showDemoHistory() {
+
+        // Registros ficticios para probar la interfaz.
+        HistoryRecord[] records = {
+                new HistoryRecord(
+                        "ITV",
+                        "2026-03-18",
+                        "Inspección favorable"
+                ),
+                new HistoryRecord(
+                        "Reparación",
+                        "2026-02-03",
+                        "Sustitución de embrague"
+                )
+        };
+
+        // Eliminamos cualquier registro anterior.
+        historyList.removeAllViews();
+
+        // Espacio vertical expresado en dp.
+        int space = Math.round(
+                12 * getResources().getDisplayMetrics().density
+        );
+
+        // Recorremos los registros.
+        for (HistoryRecord record : records) {
+
+            TextView item = new TextView(this);
+
+            item.setText(
+                    record.getType() + " · " + record.getDate()
+                            + "\n" + record.getDescription()
+            );
+
+            item.setTextColor(getColor(R.color.text_primary));
+            item.setTextSize(16);
+            item.setPadding(0, space, 0, space);
+
+            // Añadimos el registro a la lista visual.
+            historyList.addView(item);
+        }
+
+        // Dejamos claro que los datos son ficticios.
+        historyStatus.setText(R.string.history_demo_warning);
+
+        // Mostramos la tarjeta.
+        historySection.setVisibility(View.VISIBLE);
     }
 
     private void setLoading(boolean value) {
