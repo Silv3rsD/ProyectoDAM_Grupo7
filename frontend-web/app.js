@@ -12,13 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
             statusMessage.textContent = 'Buscando vehículo...';
 
             try {
-                // Petición GET al endpoint público de la API acordado en el contrato[cite: 8]
                 const response = await fetch(`http://localhost:8080/api/public/vehicles/plate/${encodeURIComponent(plate)}`);
 
                 if (response.status === 404) {
                     statusMessage.textContent = 'Vehículo no encontrado';
                 } else if (response.ok) {
-                    // Si existe (200 OK), redirigimos a la página de historial pasando la matrícula por parámetro en la URL
                     window.location.href = `ficha.html?plate=${encodeURIComponent(plate)}`;
                 } else {
                     statusMessage.textContent = `Error en el servidor (Código: ${response.status})`;
@@ -48,6 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.getElementById('res-model').textContent = dto.model || '---';
                     document.getElementById('res-km').textContent = dto.currentMileage ? dto.currentMileage + ' km' : '---';
                     document.getElementById('res-year').textContent = dto.manufacturingYear || '---';
+
+                    const linkaHistorial = document.getElementById('linkaHistorial');
+                    if (linkaHistorial) {
+                        const matriculaFinal = dto.licensePlate || plate;
+                        linkaHistorial.href = `historial.html?plate=${encodeURIComponent(matriculaFinal)}`;
+                    }
                 })
                 .catch(err => {
                     console.error('Error al cargar la ficha:', err);
