@@ -3,12 +3,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const plateInput = document.getElementById('plateInput');
     const statusMessage = document.getElementById('statusMessage');
 
+    function isValidPlate(plate) {
+        const cleanPlate = plate.trim().toUpperCase();
+        const plateRegex = /^\d{4}\s?[A-Z]{3}$/;
+        return plateRegex.test(cleanPlate);
+    }
+
     if (busquedaForm) {
         busquedaForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
             const plate = plateInput.value.trim().toUpperCase();
             if (!plate) return;
+
+            if (!isValidPlate(plate)) {
+                statusMessage.textContent = 'Introduce una matrícula válida de 4 números y 3 letras (ej: 1234ABC).';
+                return;
+            }
+
             statusMessage.textContent = 'Buscando vehículo...';
 
             try {
