@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutentIFPcar - Soporte</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div>
+            <img src="logo_horizontal.png" class="logo">
+        </div>
+        <!--TIENE CLASES NO DEFINIDAS EN EL CSS. REVISAR-->
+        <nav class="nav-menu ">
+            <a href="index.html" class="nav-link active">Inicio</a>
+            <a href="soporte.html" class="nav-link">Soporte</a>
+            <a href="login.html" class="nav-link btn-login">Inicio de sesión</a>
+        </nav> 
+    </header>
+    <main>
+        <div class="card card-support">
+            <h2 class="card-title">Área de soporte</h2>
+            <p>
+                Escríbenos tu correo electrónico si tienes alguna duda o problema 
+                y el equipo de soporte se pondrá en contacto contigo.
+            </p>
+            <form id="supportForm">
+                <div class="campo">
+                    <input type="email" id="correo" name="correo" aria-label="correo electrónico" placeholder="nombre@ejemplo.com" required>
+                </div>
+                <button type="submit" id="sendBtn">Enviar consulta</button>
+            </form>
+
+            <p id="support-status" role="status" aria-live="polite"></p>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

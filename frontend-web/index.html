@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutentIFPcar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div>
+            <img src="logo_horizontal.png" class="logo" alt="Logo AutentIFPcar">
+        </div>
+        <nav class="nav-menu ">
+            <a href="index.html">Inicio</a>
+            <a href="soporte.html">Soporte</a>
+            <a href="login.html">Inicio de sesión</a>
+        </nav> 
+    </header>
+    <main>
+        <div class="card card-search">
+            <h2 class="card-title">Búsqueda</h2>
+            <form id="busquedaForm" method="GET" action="ficha.html">
+                <div class="input-group">
+                    <input type="text" id="plateInput" class="input-plate" placeholder="1234ABC" maxlength="15" required aria-label="Matrícula del vehículo">
+                    <!--<button type="button" class="btn-camera" title="Escanear matrícula">📷</button>-->
+                </div>
+                <button type="submit" id="searchBtn" class="btn-primary">Buscar</button>
+            </form>
+            <div id="statusMessage" class="status-message" aria-live="polite"></div>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

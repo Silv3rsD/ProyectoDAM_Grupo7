@@ -1,0 +1,320 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+header {
+    margin-bottom: 15px;
+    padding:10px 10px;
+    background-color: #95a5a6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+}
+
+.logo {
+    height: 150px;
+    width: auto;
+}
+
+.nav-menu { 
+    display: flex;
+    gap: 25px;
+}
+
+.nav-menu a {
+    color: #1A2B83;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.nav-menu a:hover {
+    color: #ffffff;
+}
+
+main {
+    margin-top: 50px;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 10PX 10px 10px rgba(0,0,0,0.1);
+}
+
+.card-search {
+    background-color: #6E0000;
+    color: white;
+    max-width: 400px; 
+    width: 100%;
+}
+
+.card-title {
+    margin-bottom: 15px;
+}
+
+.input-group {
+    display: flex;
+    background: white;
+    border-radius: 4px;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.input-plate {
+    border: none;
+    outline: none;
+    padding: 8px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.btn-primary {
+    background-color: #7f8c8d;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 15px auto 0 auto;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    width: 40%;
+}
+
+.btn-primary:hover {
+    background-color: #1A2B83;
+    color: white;
+}
+
+.status-message {
+    margin-top: 15px;
+    font-size: 13px;
+    text-align: center;
+    color: #ffeb3b;
+}
+
+.card-detail {
+    background-color: #6E0000;
+    color: white;
+    max-width: 400px; 
+    width: 100%;
+}
+
+.car-image-container img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    height: 140px;
+    background-color: #ddd;
+
+}
+
+.car-info {
+    padding: 15px;
+    text-align: left;
+}
+
+.car-info p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.btn-secondary {
+    background-color: #7f8c8d;
+    color: black;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 15px auto 0 auto;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    width: 40%;
+    font-size: 13px;
+}
+
+.btn-secondary:hover {
+    background-color: #1A2B83;
+    color: white;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 35%;
+}
+
+.car-image-section {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    background-color: #ddd;
+}
+
+.car-image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.technical-card {
+    background-color: #6E0000;
+    color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 10PX 10px 10px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+.technical-card h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 8px;
+    font-size: 20px;
+}
+.car-info p {
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: bold;
+}
+.car-info span {
+    font-weight: lighter;
+}
+
+.btn-pdf {
+    background-color: #1A2B83;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    text-decoration: none;
+}
+
+.btn-pdf:hover {
+    background-color: #7f8c8d;
+    color: black;
+}
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    width: 65%;
+}
+
+.history-card {
+    background-color: #6E0000;
+    color: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    min-height: 400px;
+    width: 100%;
+}
+
+.history-card h3 {
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 10px;
+    font-size: 22px;
+}
+
+.history-item {
+    color:black;
+    background-color: #B5EBFF;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid yellow;
+}
+
+.history-title {
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.history-details {
+    font-size: 12px;
+    color: black;
+    margin-bottom: 8px;
+}
+
+.history-description {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.card-support {
+    background-color: #1A2B83;
+    color: white;
+    width: 40%;
+}
+
+.card-support p {
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.card-support input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.card-support button {
+    background-color: #95a5a6;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 15px auto 0 auto;
+    display: block;
+    text-align: center;
+}

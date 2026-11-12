@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutentIFPcar - Ficha Técnica</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div>
+            <img src="logo_horizontal.png" class="logo">
+        </div>
+        <!--TIENE CLASES NO DEFINIDAS EN EL CSS. REVISAR-->
+        <nav class="nav-menu ">
+            <a href="index.html" class="nav-link active">Inicio</a>
+            <a href="soporte.html" class="nav-link">Soporte</a>
+            <a href="login.html" class="nav-link btn-login">Inicio de sesión</a>
+        </nav>
+    </header>        
+    <main>
+        <div class="card card-detail">
+            <h2 class="card-title">Ficha Técnica</h2>
+            <div class="car-image-container">
+                <!--hay quue añadir una fila más en vehiculos que sea de foto-->
+                <img src="foto_coche_generica.jpg" alt="Vehículo" id="car-img">
+            </div>
+            <div class="car-info">
+                <p>Matrícula:<span id="res-plate">---</span></p>
+                <p>Marca: <span id="res-brand">---</span></p>
+                <p>Modelo:<span id="res-model">---</span></p>
+                <p>Km actual:<span id="res-km">---</span></p>
+                <p>Año creado: <span id="res-year">---</span></p>
+                <!--hay que añadir una fila más en los vehiculos que sea de sitio-->
+                <p>Ciudad: <span id="res-city">Colmenar Viejo, Spain</span></p>
+            </div>
+            <a href="historial.html" id="linkaHistorial" class="btn-secondary">Ver historial</a>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
